@@ -1,6 +1,6 @@
 System description:
 
-There are 4 classes in our project:
+There are 4 classes in the project:
 
 ServerTCP that accepts the client connection,returns the list of users, and sends messages to all clients.
 
