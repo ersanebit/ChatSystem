@@ -1,0 +1,32 @@
+System description:
+
+There are 4 classes in our project:
+
+ServerTCP that accepts the client connection,returns the list of users, and sends messages to all clients.
+
+ClientHandler  which extends a thread is responsible for the protocol messages in our system.
+Whatever string is received from the client, the switch statement will take care of all the messages.
+Here we also have the checkUsername method that verifies if the username is written correctly for the server to accept.
+
+Client is the class that contains the login part(basically introduce the username, portnumber, ip address). Once the connection is established and everything is running, the join() method is called,  which is responsible for allowing a client to enter the chat room.
+The sendMessages() method basically allows the clients to write messages to the socket.
+
+The class MessageListener also extends a thread, and is showing that if the client is typing any message, then that message will be printed out on console.
+
+What the system can do and how it works:
+
+The chatsystem is designed for communication between clients through a server.
+The user has to run both the ServerTCP and Client classes in order to establish the connection.
+First, a client has to introduce the ip address, the port number and a username in order to connect. 
+Then, the user can start exchanging messages with other clients as long as they are connected to the server.
+
+The protocol
+
+If the username, port number and ip address are written correctly due to the conditions in the code, the server should provide the message: “J_OK” meaning that the user is successfully connected.
+Whenever the user types “COMMANDS”, a list with all available commands will be shown.
+If the user types “Online”, all the online users will be shown.
+If there`s any error in the users message, the server will print out the message “J_ER”;
+Once a client enters a message, it will display DATA <username>: <text> on the console.
+The client can choose to be invisible if he types “INVISIBLE”. He will be able to read the messages in the chat room but wont be able to type anything except “VISIBLE” for being visible to others again.
+If a client types QUIT, he will exit the chat room.
+
